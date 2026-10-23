@@ -1,0 +1,1 @@
+# com.junya005.architecture.statemachine
