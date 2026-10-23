@@ -1,0 +1,11 @@
+{
+    "name": "com.yourname.architecture",
+    "version": "1.0.0",
+    "displayName": "Core Architecture Toolkit",
+    "description": "汎用的なアーキテクチャ・基底クラス群（MVP, Singleton, EventBusなど）",
+    "unity": "2021.3",
+    "author": {
+        "name": "junya005",
+        "email": "junya005.65@gmail.com"
+    }
+}
