@@ -1,6 +1,6 @@
 {
-    "name": "com.yourname.architecture",
-    "version": "1.0.0",
+    "name": "com.junya005.architecture",
+    "version": "1.0.1",
     "displayName": "Core Architecture Toolkit",
     "description": "汎用的なアーキテクチャ・基底クラス群（MVP, Singleton, EventBusなど）",
     "unity": "2021.3",
