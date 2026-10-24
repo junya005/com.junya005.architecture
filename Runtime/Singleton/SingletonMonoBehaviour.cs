@@ -12,7 +12,6 @@ public abstract class SingletonMonoBehaviour<TComponent> : MonoBehaviour
     private bool _dontDestroyOnLoad = true;
 
     private static TComponent _instance;
-    private static bool _isQuitting = false;
 
     /// <summary>
     /// シングルトンインスタンスが既に存在するかどうか
@@ -36,12 +35,6 @@ public abstract class SingletonMonoBehaviour<TComponent> : MonoBehaviour
     {
         get
         {
-            // アプリケーション終了中はゴーストオブジェクトを生成しないようガード
-            if (_isQuitting)
-            {
-                return null;
-            }
-
             if (_instance == null)
             {
                 _instance = FindFirstObjectByType<TComponent>();
@@ -111,20 +104,5 @@ public abstract class SingletonMonoBehaviour<TComponent> : MonoBehaviour
     /// </summary>
     protected virtual void OnDestroyed()
     {
-    }
-
-    protected virtual void OnApplicationQuit()
-    {
-        _isQuitting = true;
-    }
-
-    /// <summary>
-    /// Domain Reload が無効化されている環境下での再生開始時に static 変数をリセット
-    /// </summary>
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private static void ResetStaticFields()
-    {
-        _instance = null;
-        _isQuitting = false;
     }
 }
